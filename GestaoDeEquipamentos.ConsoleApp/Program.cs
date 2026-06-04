@@ -57,13 +57,28 @@ while (true)
         Console.WriteLine($"O produto {equipamento.nome} foi cadastrado com sucesso!");
         Console.ReadLine();
     }
+
     else if (opcaoMenu == "2")
     {
     }
+
     else if (opcaoMenu == "3")
     {
     }
+
     else if (opcaoMenu == "4")
     {
+        Console.WriteLine("---------------------------------");
+        Console.WriteLine("Visualizar equipamentos");
+        Console.WriteLine("---------------------------------");
+
+        Console.WriteLine(
+            "{0, -7} | {1, -15} | {2, -20} | {3, -15}",
+            "Id", "Nome", "Preço de Aquisição", "Data de fabricação"
+        );
+
+        Console.WriteLine("---------------------------------");
+        Console.Write("Digite ENTER para continuar...");
+        Console.WriteLine();
     }
 }
