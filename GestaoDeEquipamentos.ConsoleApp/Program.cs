@@ -184,6 +184,6 @@ while (true)
 
         Console.WriteLine("---------------------------------");
         Console.Write("Digite ENTER para continuar...");
-        Console.WriteLine();
+        Console.ReadLine();
     }
 }
