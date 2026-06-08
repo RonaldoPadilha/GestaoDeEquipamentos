@@ -6,6 +6,15 @@ Equipamento[] equipamentosSalvos = new Equipamento[100];
 int contadorIdsChamados = 1;
 Chamado[] chamadosSalvos = new Chamado[100];
 
+// Criação de Dados Teste
+Equipamento equipamentoTeste = new Equipamento();
+equipamentoTeste.id = contadorIdsEquipamentos++;
+equipamentoTeste.nome = "Notebook Dell";
+equipamentoTeste.precoAquisicao = 2000;
+equipamentoTeste.dataFabricacao = DateTime.Parse("02/02/2020");
+
+equipamentosSalvos[0] = equipamentoTeste;
+
 while (true)
 {
     Console.Clear();
@@ -308,6 +317,40 @@ while (true)
                 }
 
                 Console.WriteLine($"O chamado {novoChamado.titulo} foi cadastrado com sucesso!");
+                Console.ReadLine();
+            }
+
+            else if (opcaoMenu == "4")
+            {
+                Console.WriteLine("---------------------------------");
+                Console.WriteLine("Visualizar chamados");
+                Console.WriteLine("---------------------------------");
+
+                // Tabela
+                Console.WriteLine(
+                    "{0, -7} | {1, -15} | {2, -30} | {3, -17} | {4, -15}",
+                    "Id", "Título", "Descrição", "Data de Abertura", "Equipamento"
+                );
+
+                for (int i = 0; i < chamadosSalvos.Length; i++)
+                {
+                    Chamado ch = chamadosSalvos[i];
+
+                    if (ch == null)
+                        continue;
+
+                    Console.WriteLine(
+                        "{0, -7} | {1, -15} | {2, -30} | {3, -17} | {4, -15}",
+                        ch.id,
+                        ch.titulo,
+                        ch.descricao,
+                        ch.dataAbertura.ToShortDateString(),
+                        ch.equipamento.nome
+                    );
+                }
+
+                Console.WriteLine("---------------------------------");
+                Console.Write("Digite ENTER para continuar...");
                 Console.ReadLine();
             }
         }
