@@ -1,3 +1,5 @@
+using GestaoDeEquipamentos.ConsoleApp.Utilidades;
+
 namespace GestaoDeEquipamentos.ConsoleApp.Dominio;
 
 /*
@@ -9,15 +11,23 @@ namespace GestaoDeEquipamentos.ConsoleApp.Dominio;
 */
 public class Equipamento
 {
-    public int id;
-    public string nome;
-    public decimal precoAquisicao;
-    public DateTime dataFabricacao;
-
+    public int Id { get; private set; }  // propriedade autoimplementada
+    public string Nome { get; set; }
+    public decimal PrecoAquisicao { get; set; }
+    public DateTime DataFabricacao { get; set; }
     public Equipamento(string nome, decimal precoAquisicao, DateTime dataFabricacao)
     {
-        this.nome = nome;
-        this.precoAquisicao = precoAquisicao;
-        this.dataFabricacao = dataFabricacao;
+        Id = GeradorIds.ObterIdsEquipamentos();
+
+        Nome = nome;
+        PrecoAquisicao = precoAquisicao;
+        DataFabricacao = dataFabricacao;
+    }
+
+    public void Atualizar(Equipamento equipamentoAtualizado)
+    {
+        Nome = equipamentoAtualizado.Nome;
+        PrecoAquisicao = equipamentoAtualizado.PrecoAquisicao;
+        DataFabricacao = equipamentoAtualizado.DataFabricacao;
     }
 }
